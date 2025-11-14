@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meemo Shop - Tham khảo giá hack</title>
+
+    <!-- Preconnect để tối ưu tốc độ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Oxanium:wght@300;400;600;700&family=Audiowide&display=swap" rel="stylesheet">
+
+    <!-- Favicon an toàn -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/686/686589.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn-icons-png.flaticon.com/512/686/686589.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/512/686/686589.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/686/686589.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 30px;
+            background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4b 50%, #0d1129 100%);
+            font-family: "Oxanium", sans-serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: #e0e0ff;
+        }
+        /* Hiệu ứng sao băng */
+        
+        .shooting-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(100, 220, 255, 0.8) 100%);
+            border-radius: 50%;
+            animation: shootingStar linear infinite;
+            filter: drop-shadow(0 0 6px rgba(100, 220, 255, 0.8));
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Audiowide', cursive;
+            font-size: 4.5rem;
+            background: linear-gradient(90deg, #ff2a6d, #00e0ff, #05d5ff, #a500ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 0 40px rgba(0, 224, 255, 0.6);
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #00e0ff, #a500ff, transparent);
+            border-radius: 50%;
+        }
+        
+        .tagline {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #a0a0ff;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: auto;
+        }
+        
+        .card {
+            width: 100%;
+            background: rgba(16, 18, 40, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(100, 220, 255, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff2a6d, #00e0ff, #a500ff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 224, 255, 0.4);
+            border-color: rgba(100, 220, 255, 0.6);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 18px;
+            display: block;
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(100, 220, 255, 0.25);
+            cursor: zoom-in;
+        }
+        
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(0, 224, 255, 0.6);
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+        
+        .card p {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #c0c0ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            color: #00e0ff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-shadow: 0 0 12px rgba(0, 224, 255, 0.8);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            margin-top: auto;
+            border-radius: 15px;
+            background: linear-gradient(90deg, #ff2a6d, #a500ff);
+            color: white;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(165, 0, 255, 0.5);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(165, 0, 255, 0.7);
+            background: linear-gradient(90deg, #ff2a6d, #ff0080, #a500ff);
+        }
+        
+        .pagination {
+            text-align: center;
+            margin-top: 60px;
+            display: none;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-nav {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #00e0ff, #05d5ff);
+            color: #0a0e2a;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(0, 224, 255, 0.5);
+        }
+        
+        .btn-nav::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.7s ease, height 0.7s ease;
+        }
+        
+        .btn-nav:hover::before {
+            width: 350px;
+            height: 350px;
+        }
+        
+        .btn-nav span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-nav:hover:not(:disabled) {
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(0, 224, 255, 0.7);
+            color: #0a0e2a;
+        }
+        
+        .btn-nav:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        .page-info {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #00e0ff;
+            align-self: center;
+            min-width: 120px;
+            text-shadow: 0 0 12px rgba(0, 224, 255, 0.8);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            color: #a0a0ff;
+            font-size: 1rem;
+            border-top: 1px solid rgba(100, 220, 255, 0.25);
+        }
+        /* Modal phóng to ảnh */
+        
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 224, 255, 0.3);
+            border: 2px solid rgba(100, 220, 255, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: #00e0ff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.2);
+            color: #ff2a6d;
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0, 224, 255, 0.8);
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        /* Tablet styles */
+        
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .card {
+                padding: 30px;
+                min-height: 480px;
+            }
+            .card img {
+                height: 200px;
+            }
+        }
+        /* Mobile styles */
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            header {
+                margin-bottom: 30px;
+                padding: 15px;
+            }
+            .logo {
+                font-size: 2.8rem;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card {
+                padding: 20px;
+                border-radius: 15px;
+                margin-bottom: 10px;
+                min-height: auto;
+            }
+            .card img {
+                height: 180px;
+                margin-bottom: 15px;
+                object-fit: cover;
+                width: 100%;
+            }
+            .card-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            .card p {
+                margin: 10px 0;
+                font-size: 1rem;
+            }
+            .price {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 14px;
+                font-size: 1rem;
+                margin-top: 15px;
+            }
+            .pagination {
+                display: flex;
+                margin-top: 30px;
+                gap: 15px;
+            }
+            .btn-nav {
+                padding: 14px 25px;
+                font-size: 0.9rem;
+                min-width: 100px;
+            }
+            .page-info {
+                font-size: 1rem;
+                min-width: 80px;
+            }
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 2rem;
+            }
+            .image-caption {
+                font-size: 1rem;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card img {
+                height: 160px;
+            }
+            .card-title {
+                font-size: 1.1rem;
+            }
+            .card p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hiệu ứng sao băng -->
+    <div class="shooting-stars" id="shootingStars"></div>
+
+    <!-- Modal phóng to ảnh -->
+    <div class="image-modal" id="imageModal">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+            <div class="image-caption" id="imageCaption"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">MeemoShop</h1>
+            <p class="tagline">THAM KHẢO GIÁ HACK GAME</p>
+        </header>
+
+        <div class="grid" id="productGrid">
+
+            <!-- 1 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111450ac023e0c503299777eab16edd98ce9.jpg" alt="Free Fire" data-title="Free Fire – Imazing">
+                <div class="card-title">Free Fire – Imazing</div>
+                <p>File lẻ: <span class="price">40.000đ</span></p>
+                <p>All file : <span class="price">70.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 2 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114ba00111898bcbf142d1d8b75b8a4440f.jpg" alt="Liên Quân" data-title="Liên Quân – Tipa Chấp tố">
+                <div class="card-title">Liên Quân – Tipa Chấp tố</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 3 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114209ed68c67d77fbb25d163d9998d375b.jpg" alt="PUBG" data-title="Liên Quân – Tipa Chấp tố">
+                <div class="card-title">Liên Quân – Tipa Chấp tố</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 4 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114a34fccfb35996df853f1549cd00b339f.jpg" alt="Tốc Chiến" data-title="Liên Quân – IPA">
+                <div class="card-title">Liên Quân – IPA</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 5 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202511140ce67c36832b8dbbbf69ac2c0e148615.jpg" alt="PUBG SHARK" data-title="PUBG SHARK-Tipa | IPA">
+                <div class="card-title">PUBG SHARK-Tipa | IPA</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 6 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114eeefb1a061365972eaf136371c4c1f73.jpg" alt="LUXURY" data-title="LUXURY - IPA">
+                <div class="card-title">LUXURY - IPA</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">130.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 7 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202511146b8c96dd01fbe604e3fca1254fe05628.jpg" alt="PUBG ZED" data-title="PUBG ZED – IPA | JB">
+                <div class="card-title">PUBG ZED – IPA | JB</div>
+                <p>Tuần: <span class="price">120.000đ</span></p>
+                <p>Tháng: <span class="price">200.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 8 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114696979f75de9678c2f7f411a99ee3d7d.jpg" alt="Play Together" data-title="Play Together">
+                <div class="card-title">Play Together</div>
+                <p>Tuần: <span class="price">70.000đ</span></p>
+                <p>Tháng: <span class="price">130.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 9 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111476262d93af766832df7aa3140b3eca09.jpg" alt="Valorant" data-title="Valorant TIPA|IPA">
+                <div class="card-title">Valorant TIPA|IPA</div>
+                <p>Tuần: <span class="price">100.000đ</span></p>
+                <p>Tháng: <span class="price">200.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 10 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111434179ae6373b061df5ee91ee8b8255d6.jpg" alt="AOV" data-title="AOV - TIPA|IPA">
+                <div class="card-title">AOV - TIPA|IPA</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">130.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 11 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114055eabc371ac9658a6a50c1b592a97b8.jpg" alt="Mobile Legends" data-title="Mobile Legend | IPA">
+                <div class="card-title">Mobile Legend | IPA</div>
+                <p>Tuần: <span class="price">70.000đ</span></p>
+                <p>Tháng: <span class="price">120.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 12 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111450a1acade5203b208e80a74c4cb8e5b3.jpg" alt="PUBG GDP" data-title="PUBG GDP Mobile – Jaibreak">
+                <div class="card-title">PUBG GDP Mobile – Jaibreak</div>
+                <p>Tuần: <span class="price">85.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 13 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114f22297be830673af9bfec96629c1b612.jpg" alt="Zing Speed" data-title="Zing Speed Mobile">
+                <div class="card-title">Zing Speed Mobile</div>
+                <p>Tuần: <span class="price">75.000đ</span></p>
+                <p>Tháng: <span class="price">120.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 14 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111415bba2d0d1c2af84f4277b7777d408ca.jpg" alt="AOV" data-title="AOV">
+                <div class="card-title">AOV</div>
+                <p>Tuần: <span class="price">80.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 15 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202511142912c94b35ea443b0bf8a7a1e0ad32b1.jpg" alt="LOL Wild Rift" data-title="LOL Wild Rift-Tipa">
+                <div class="card-title">LOL Wild Rift-Tipa</div>
+                <p>Tuần: <span class="price">85.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 16 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111488f7c913e78921a0c777f13b11c93394.jpg" alt="PUBG BEAR" data-title="PUBG BEAR-Tipa|IPA">
+                <div class="card-title">PUBG BEAR-Tipa|IPA</div>
+                <p>Tuần: <span class="price">85.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 17 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_2025111424a352e92175d75575a5f7e7030128fb.jpg" alt="AOV" data-title="AOV-IPA">
+                <div class="card-title">AOV-IPA</div>
+                <p>Tuần: <span class="price">65.000đ</span></p>
+                <p>Tháng: <span class="price">120.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+            <!-- 18 -->
+            <div class="card">
+                <img src="https://sf-static.upanhlaylink.com/img/image_20251114d5697bc81a2753e2b8c821f5140e87e6.jpg" alt="AOV Cheat" data-title="AOV 0304 Cheat-Tipa">
+                <div class="card-title">AOV 0304 Cheat-Tipa</div>
+                <p>Tuần: <span class="price">85.000đ</span></p>
+                <p>Tháng: <span class="price">150.000đ</span></p>
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            </div>
+
+        </div>
+
+        <div class="pagination">
+            <button class="btn-nav" id="backBtn" onclick="prevPage()"><span>← Trước</span></button>
+            <span class="page-info"><span id="currentPage">1</span> / <span id="totalPage">6</span></span>
+            <button class="btn-nav" id="nextBtn" onclick="nextPage()"><span>Tiếp →</span></button>
+        </div>
+
+        <footer>
+            <p>© 2025 Meemo Shop - Hack giá rẻ chất lượng</p>
+            <p>Liên hệ: @ItsMeemo123 </p>
+        </footer>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let itemsPerPage;
+
+        const allCards = document.querySelectorAll('#productGrid .card');
+        let totalPages;
+
+        const backBtn = document.getElementById('backBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentPageSpan = document.getElementById('currentPage');
+        const totalPageSpan = document.getElementById('totalPage');
+        const pagination = document.querySelector('.pagination');
+
+        // Modal elements
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const imageCaption = document.getElementById('imageCaption');
+        const closeModal = document.getElementById('closeModal');
+
+        function updatePagination() {
+            if (window.innerWidth <= 768) {
+                itemsPerPage = 3; // 3 sản phẩm mỗi trang trên mobile
+                pagination.style.display = 'flex';
+                totalPages = Math.ceil(allCards.length / itemsPerPage);
+                totalPageSpan.textContent = totalPages;
+                showPage(currentPage);
+            } else {
+                itemsPerPage = 18; // Hiển thị tất cả trên PC
+                pagination.style.display = 'none';
+                // Hiển thị tất cả sản phẩm trên PC
+                allCards.forEach(card => card.style.display = '');
+            }
+        }
+
+        function showPage(page) {
+            // Chỉ áp dụng phân trang trên mobile
+            if (window.innerWidth > 768) return;
+
+            // Ẩn tất cả card
+            allCards.forEach(card => {
+                card.style.display = 'none';
+            });
+
+            // Hiển thị card của trang hiện tại
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            for (let i = startIndex; i < endIndex && i < allCards.length; i++) {
+                allCards[i].style.display = '';
+            }
+
+            currentPageSpan.textContent = page;
+
+            // Disable/Enable nút
+            backBtn.disabled = page === 1;
+            nextBtn.disabled = page === totalPages;
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        // Tạo hiệu ứng sao băng
+        function createShootingStars() {
+            const container = document.getElementById('shootingStars');
+            const starCount = window.innerWidth <= 768 ? 15 : 25;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+
+                const duration = Math.random() * 8 + 4;
+                const delay = Math.random() * 15;
+
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+
+                container.appendChild(star);
+            }
+        }
+
+        // Xử lý phóng to ảnh
+        function setupImageZoom() {
+            const images = document.querySelectorAll('.card img');
+
+            images.forEach(img => {
+                // Click để phóng to
+                img.addEventListener('click', function() {
+                    const src = this.getAttribute('src');
+                    const title = this.getAttribute('data-title');
+
+                    modalImage.setAttribute('src', src);
+                    imageCaption.textContent = title;
+
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Hover effect trên desktop
+                if (window.innerWidth > 768) {
+                    img.addEventListener('mouseenter', function() {
+                        this.style.cursor = 'zoom-in';
+                        this.style.transform = 'scale(1.05)';
+                    });
+
+                    img.addEventListener('mouseleave', function() {
+                        if (!imageModal.classList.contains('active')) {
+                            this.style.transform = 'scale(1)';
+                        }
+                    });
+                }
+            });
+
+            // Đóng modal
+            closeModal.addEventListener('click', closeImageModal);
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+
+            // Đóng bằng phím ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            });
+        }
+
+        function closeImageModal() {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Reset transform cho ảnh khi đóng modal
+            const images = document.querySelectorAll('.card img');
+            images.forEach(img => {
+                img.style.transform = '';
+            });
+        }
+
+        // Khởi tạo
+        updatePagination();
+        createShootingStars();
+        setupImageZoom();
+
+        // Cập nhật khi thay đổi kích thước cửa sổ
+        window.addEventListener('resize', updatePagination);
+    </script>
+
+</body>
+
+</html>
