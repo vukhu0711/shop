@@ -1617,6 +1617,9 @@
             // Thêm vào grid
             document.getElementById('productGrid').appendChild(newCard);
             
+            // Thêm sự kiện phóng to ảnh cho sản phẩm mới
+            setupImageZoomForNewProduct(newCard);
+            
             // Thêm vào danh sách điều khiển
             const toggleDiv = document.createElement('div');
             toggleDiv.className = 'hot-toggle';
@@ -1683,6 +1686,37 @@
             }
         }
 
+        // Thêm sự kiện phóng to ảnh cho sản phẩm mới
+        function setupImageZoomForNewProduct(card) {
+            const img = card.querySelector('img');
+            
+            // Click để phóng to
+            img.addEventListener('click', function() {
+                const src = this.getAttribute('src');
+                const title = this.getAttribute('data-title');
+
+                modalImage.setAttribute('src', src);
+                imageCaption.textContent = title;
+
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Hover effect trên desktop
+            if (window.innerWidth > 768) {
+                img.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'zoom-in';
+                    this.style.transform = 'scale(1.05)';
+                });
+
+                img.addEventListener('mouseleave', function() {
+                    if (!imageModal.classList.contains('active')) {
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+            }
+        }
+
         // Lưu sản phẩm vào localStorage
         function saveProductToLocalStorage(id, title, imageUrl, price1, label1, price2, label2) {
             const products = JSON.parse(localStorage.getItem('customProducts') || '{}');
@@ -1719,6 +1753,9 @@
                 
                 // Thêm vào grid
                 document.getElementById('productGrid').appendChild(newCard);
+                
+                // Thêm sự kiện phóng to ảnh cho sản phẩm từ localStorage
+                setupImageZoomForNewProduct(newCard);
                 
                 // Thêm vào danh sách điều khiển
                 const toggleDiv = document.createElement('div');
@@ -1935,7 +1972,7 @@
         // Sự kiện cho nút thêm sản phẩm
         addProductBtn.addEventListener('click', addNewProduct);
 
-        // Sự kiện cho nút admin ẩn - SỬA LỖI Ở ĐÂY
+        // Sự kiện cho nút admin ẩn
         adminToggle.addEventListener('click', function() {
             adminPanel.classList.toggle('active');
         });
