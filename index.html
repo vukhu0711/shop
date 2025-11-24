@@ -126,6 +126,14 @@
             margin-bottom: 40px;
             border: 1px solid rgba(100, 220, 255, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: none;
+            /* Ẩn panel admin mặc định */
+        }
+        
+        .admin-panel.active {
+            display: block;
+            /* Hiển thị khi có class active */
         }
         
         .admin-panel h2 {
@@ -135,6 +143,95 @@
             text-align: center;
             font-size: 1.8rem;
             text-shadow: 0 0 15px rgba(0, 224, 255, 0.6);
+        }
+        
+        .admin-login {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(30, 35, 70, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(100, 220, 255, 0.2);
+        }
+        
+        .admin-login input {
+            padding: 12px 15px;
+            margin: 0 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 220, 255, 0.3);
+            background: rgba(20, 25, 50, 0.8);
+            color: #e0e0ff;
+            font-family: 'Oxanium', sans-serif;
+            font-size: 1rem;
+            width: 200px;
+        }
+        
+        .admin-login button {
+            padding: 12px 20px;
+            background: linear-gradient(90deg, #00e0ff, #05d5ff);
+            color: #0a0e2a;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            margin-left: 10px;
+        }
+        
+        .admin-content {
+            display: none;
+            position: relative;
+        }
+        
+        .admin-content.active {
+            display: block;
+        }
+        /* Thêm CSS cho nút đăng xuất */
+        
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background: linear-gradient(90deg, #ff2a6d, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            display: none;
+            z-index: 2;
+        }
+        
+        .logout-btn.active {
+            display: block;
+        }
+        /* Thêm CSS cho nút áp dụng tất cả */
+        
+        .apply-all-btn {
+            background: linear-gradient(90deg, #00e0ff, #05d5ff) !important;
+        }
+        /* Thêm CSS cho trạng thái chưa đăng nhập */
+        
+        .admin-content:not(.active) {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .admin-content:not(.active)::before {
+            content: "Vui lòng đăng nhập để sử dụng tính năng này";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff2a6d;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-align: center;
+            z-index: 1;
         }
         
         .hot-controls {
@@ -154,6 +251,7 @@
             border: 1px solid rgba(100, 220, 255, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
         
         .hot-toggle:hover {
@@ -164,6 +262,11 @@
         .hot-toggle.active {
             background: rgba(255, 42, 109, 0.2);
             border-color: rgba(255, 42, 109, 0.5);
+        }
+        
+        .maintenance-toggle.active {
+            background: rgba(255, 165, 0, 0.2);
+            border-color: rgba(255, 165, 0, 0.5);
         }
         
         .hot-toggle input {
@@ -177,6 +280,26 @@
             font-weight: 600;
             color: #e0e0ff;
             cursor: pointer;
+            margin-right: 15px;
+        }
+        /* Nút xóa sản phẩm */
+        
+        .delete-product-btn {
+            background: linear-gradient(90deg, #ff2a6d, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            margin-left: 10px;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .delete-product-btn:hover {
+            background: linear-gradient(90deg, #ff1a5d, #ff5b25);
+            transform: scale(1.05);
         }
         
         .admin-buttons {
@@ -207,6 +330,65 @@
         
         .admin-btn.reset {
             background: linear-gradient(90deg, #ff2a6d, #ff6b35);
+        }
+        
+        .add-product-form {
+            background: rgba(30, 35, 70, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(100, 220, 255, 0.2);
+        }
+        
+        .add-product-form h3 {
+            color: #00e0ff;
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #c0c0ff;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 220, 255, 0.3);
+            background: rgba(20, 25, 50, 0.8);
+            color: #e0e0ff;
+            font-family: 'Oxanium', sans-serif;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .add-product-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00e0ff, #05d5ff);
+            color: #0a0e2a;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            margin-top: 10px;
         }
         
         .grid {
@@ -343,6 +525,18 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(165, 0, 255, 0.7);
             background: linear-gradient(90deg, #ff2a6d, #ff0080, #a500ff);
+        }
+        
+        .btn:disabled {
+            background: linear-gradient(90deg, #666, #999);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
         }
         
         .pagination {
@@ -515,7 +709,7 @@
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
         }
-        /* Icon HOT */
+        /* Icon HOT và Bảo trì */
         
         .hot-badge {
             position: absolute;
@@ -543,6 +737,32 @@
             font-size: 1.1rem;
         }
         
+        .maintenance-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #ff9900, #ffcc00);
+            color: white;
+            font-weight: 900;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.5);
+            animation: pulse 2s infinite;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .maintenance-badge::before {
+            content: "🔧";
+            font-size: 1.1rem;
+        }
+        
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -556,6 +776,32 @@
                 transform: scale(1);
                 box-shadow: 0 4px 15px rgba(255, 42, 109, 0.5);
             }
+        }
+        /* Nút Admin ẩn */
+        
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #ff2a6d, #a500ff);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(165, 0, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(165, 0, 255, 0.7);
         }
         /* Tablet styles */
         
@@ -597,6 +843,13 @@
             .admin-panel {
                 padding: 15px;
             }
+            .admin-login {
+                padding: 15px;
+            }
+            .admin-login input {
+                width: 100%;
+                margin: 5px 0;
+            }
             .hot-controls {
                 flex-direction: column;
                 align-items: center;
@@ -613,6 +866,10 @@
             .admin-btn {
                 width: 100%;
                 max-width: 200px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
             .grid {
                 grid-template-columns: 1fr;
@@ -669,11 +926,26 @@
                 font-size: 1rem;
                 bottom: 10px;
             }
-            .hot-badge {
+            .hot-badge,
+            .maintenance-badge {
                 top: 15px;
                 right: 15px;
                 font-size: 0.8rem;
                 padding: 6px 12px;
+            }
+            .maintenance-badge {
+                left: 15px;
+            }
+            /* Responsive cho mobile */
+            .logout-btn {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+            .delete-product-btn {
+                padding: 3px 6px;
+                font-size: 0.6rem;
             }
         }
         
@@ -705,6 +977,9 @@
         </div>
     </div>
 
+    <!-- Nút Admin ẩn -->
+    <div class="admin-toggle" id="adminToggle">A</div>
+
     <div class="container">
         <header>
             <h1 class="logo">MeemoShop</h1>
@@ -712,14 +987,62 @@
         </header>
 
         <!-- Bảng điều khiển quản lý HOT -->
-        <div class="admin-panel">
-            <h2>QUẢN LÝ SẢN PHẨM HOT</h2>
-            <div class="hot-controls" id="hotControls">
-                <!-- Các checkbox sẽ được thêm bằng JavaScript -->
+        <div class="admin-panel" id="adminPanel">
+            <h2>QUẢN LÝ SẢN PHẨM</h2>
+
+            <!-- Nút đăng xuất -->
+            <button class="logout-btn" id="logoutBtn">Đăng xuất</button>
+
+            <!-- Form đăng nhập admin -->
+            <div class="admin-login" id="adminLogin">
+                <input type="password" id="adminPassword" placeholder="Nhập mật khẩu admin">
+                <button id="loginBtn">Đăng nhập</button>
             </div>
-            <div class="admin-buttons">
-                <button class="admin-btn" id="applyHot">Áp dụng sản phẩm HOT</button>
-                <button class="admin-btn reset" id="resetHot">Reset tất cả</button>
+
+            <!-- Nội dung admin (chỉ hiển thị sau khi đăng nhập) -->
+            <div class="admin-content" id="adminContent">
+                <div class="hot-controls" id="hotControls">
+                    <!-- Các checkbox sẽ được thêm bằng JavaScript -->
+                </div>
+
+                <div class="admin-buttons">
+                    <button class="admin-btn apply-all-btn" id="applyAll">Áp dụng tất cả</button>
+                    <button class="admin-btn reset" id="resetAll">Reset tất cả</button>
+                </div>
+
+                <!-- Form thêm sản phẩm mới -->
+                <div class="add-product-form">
+                    <h3>THÊM SẢN PHẨM MỚI</h3>
+                    <div class="form-group">
+                        <label for="newProductTitle">Tên sản phẩm</label>
+                        <input type="text" id="newProductTitle" placeholder="Nhập tên sản phẩm">
+                    </div>
+                    <div class="form-group">
+                        <label for="newProductImage">URL hình ảnh</label>
+                        <input type="text" id="newProductImage" placeholder="Nhập URL hình ảnh">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newProductPrice1">Giá 1</label>
+                            <input type="text" id="newProductPrice1" placeholder="Ví dụ: 80.000đ">
+                        </div>
+                        <div class="form-group">
+                            <label for="newProductLabel1">Nhãn giá 1</label>
+                            <input type="text" id="newProductLabel1" placeholder="Ví dụ: Tuần">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newProductPrice2">Giá 2</label>
+                            <input type="text" id="newProductPrice2" placeholder="Ví dụ: 150.000đ">
+                        </div>
+                        <div class="form-group">
+                            <label for="newProductLabel2">Nhãn giá 2</label>
+                            <input type="text" id="newProductLabel2" placeholder="Ví dụ: Tháng">
+                        </div>
+                    </div>
+                    <button class="add-product-btn" id="addProductBtn">Thêm sản phẩm</button>
+                </div>
             </div>
         </div>
 
@@ -902,10 +1225,18 @@
     </div>
 
     <script>
+        // Mật khẩu admin (có thể thay đổi)
+        const ADMIN_PASSWORD = "admin123";
+
         let currentPage = 1;
         let itemsPerPage;
 
-        const allCards = document.querySelectorAll('#productGrid .card');
+        // Lấy tất cả card sản phẩm
+        function getAllCards() {
+            return document.querySelectorAll('#productGrid .card');
+        }
+
+        let allCards = getAllCards();
         let totalPages;
 
         const backBtn = document.getElementById('backBtn');
@@ -920,10 +1251,69 @@
         const imageCaption = document.getElementById('imageCaption');
         const closeModal = document.getElementById('closeModal');
 
-        // Quản lý sản phẩm HOT
+        // Quản lý sản phẩm HOT và Bảo trì
         const hotControls = document.getElementById('hotControls');
-        const applyHotBtn = document.getElementById('applyHot');
-        const resetHotBtn = document.getElementById('resetHot');
+        const applyAllBtn = document.getElementById('applyAll');
+        const resetAllBtn = document.getElementById('resetAll');
+
+        // Đăng nhập admin
+        const adminLogin = document.getElementById('adminLogin');
+        const adminContent = document.getElementById('adminContent');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Thêm sản phẩm mới
+        const addProductBtn = document.getElementById('addProductBtn');
+        const newProductTitle = document.getElementById('newProductTitle');
+        const newProductImage = document.getElementById('newProductImage');
+        const newProductPrice1 = document.getElementById('newProductPrice1');
+        const newProductLabel1 = document.getElementById('newProductLabel1');
+        const newProductPrice2 = document.getElementById('newProductPrice2');
+        const newProductLabel2 = document.getElementById('newProductLabel2');
+
+        // Nút Admin ẩn
+        const adminToggle = document.getElementById('adminToggle');
+        const adminPanel = document.getElementById('adminPanel');
+
+        // Kiểm tra đăng nhập admin
+        function checkAdminLogin() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
+            if (isLoggedIn) {
+                adminLogin.style.display = 'none';
+                adminContent.classList.add('active');
+                logoutBtn.classList.add('active');
+            } else {
+                // Đảm bảo panel admin bị khóa khi chưa đăng nhập
+                adminContent.classList.remove('active');
+                logoutBtn.classList.remove('active');
+            }
+        }
+
+        // Đăng nhập admin
+        function loginAdmin() {
+            const password = adminPasswordInput.value;
+            if (password === ADMIN_PASSWORD) {
+                localStorage.setItem('adminLoggedIn', 'true');
+                adminLogin.style.display = 'none';
+                adminContent.classList.add('active');
+                logoutBtn.classList.add('active');
+                adminPasswordInput.value = '';
+                alert('Đăng nhập thành công!');
+            } else {
+                alert('Mật khẩu không đúng!');
+            }
+        }
+
+        // Đăng xuất admin
+        function logoutAdmin() {
+            localStorage.removeItem('adminLoggedIn');
+            adminLogin.style.display = 'block';
+            adminContent.classList.remove('active');
+            logoutBtn.classList.remove('active');
+            adminPanel.classList.remove('active');
+            alert('Đã đăng xuất!');
+        }
 
         // Tạo danh sách checkbox cho tất cả sản phẩm
         function createHotControls() {
@@ -935,31 +1325,114 @@
                 toggleDiv.className = 'hot-toggle';
                 toggleDiv.innerHTML = `
                     <input type="checkbox" id="hot-${productId}" data-id="${productId}">
-                    <label for="hot-${productId}">${productTitle}</label>
+                    <label for="hot-${productId}">HOT</label>
+                    <input type="checkbox" id="maintenance-${productId}" data-id="${productId}" class="maintenance-checkbox">
+                    <label for="maintenance-${productId}">Bảo trì</label>
+                    <span style="margin-left: 10px; color: #a0a0ff;">${productTitle}</span>
+                    <button class="delete-product-btn" data-id="${productId}">Xóa</button>
                 `;
                 hotControls.appendChild(toggleDiv);
 
-                // Thêm sự kiện click cho toggle
-                const checkbox = toggleDiv.querySelector('input');
-                checkbox.addEventListener('change', function() {
+                // Thêm sự kiện click cho toggle HOT
+                const hotCheckbox = toggleDiv.querySelector('input:first-child');
+                hotCheckbox.addEventListener('change', function() {
                     if (this.checked) {
                         toggleDiv.classList.add('active');
                     } else {
                         toggleDiv.classList.remove('active');
                     }
                 });
+
+                // Thêm sự kiện click cho toggle Bảo trì
+                const maintenanceCheckbox = toggleDiv.querySelector('.maintenance-checkbox');
+                maintenanceCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        toggleDiv.classList.add('maintenance-toggle', 'active');
+                    } else {
+                        toggleDiv.classList.remove('maintenance-toggle', 'active');
+                    }
+                });
+
+                // Thêm sự kiện click cho nút xóa sản phẩm
+                const deleteBtn = toggleDiv.querySelector('.delete-product-btn');
+                deleteBtn.addEventListener('click', function() {
+                    deleteProduct(productId);
+                });
             });
         }
 
-        // Áp dụng sản phẩm HOT
-        function applyHotProducts() {
-            const hotCheckboxes = document.querySelectorAll('.hot-toggle input:checked');
+        // Xóa sản phẩm
+        function deleteProduct(productId) {
+            if (!confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                return;
+            }
+
+            // Xóa sản phẩm khỏi grid
+            const cardToRemove = document.querySelector(`.card[data-id="${productId}"]`);
+            if (cardToRemove) {
+                cardToRemove.remove();
+            }
+
+            // Xóa sản phẩm khỏi danh sách điều khiển
+            const toggleToRemove = document.querySelector(`.hot-toggle .delete-product-btn[data-id="${productId}"]`).closest('.hot-toggle');
+            if (toggleToRemove) {
+                toggleToRemove.remove();
+            }
+
+            // Xóa sản phẩm khỏi localStorage
+            removeProductFromStorage(productId);
+
+            // Cập nhật lại danh sách sản phẩm
+            updateAllCards();
+
+            alert('Đã xóa sản phẩm thành công!');
+        }
+
+        // Xóa sản phẩm khỏi localStorage
+        function removeProductFromStorage(productId) {
+            // Xóa khỏi danh sách sản phẩm HOT
+            const savedHotProducts = localStorage.getItem('hotProducts');
+            if (savedHotProducts) {
+                const hotProductIds = JSON.parse(savedHotProducts);
+                const updatedHotProducts = hotProductIds.filter(id => id !== productId);
+                localStorage.setItem('hotProducts', JSON.stringify(updatedHotProducts));
+            }
+
+            // Xóa khỏi danh sách sản phẩm Bảo trì
+            const savedMaintenanceProducts = localStorage.getItem('maintenanceProducts');
+            if (savedMaintenanceProducts) {
+                const maintenanceProductIds = JSON.parse(savedMaintenanceProducts);
+                const updatedMaintenanceProducts = maintenanceProductIds.filter(id => id !== productId);
+                localStorage.setItem('maintenanceProducts', JSON.stringify(updatedMaintenanceProducts));
+            }
+
+            // Xóa khỏi danh sách sản phẩm tùy chỉnh
+            const savedCustomProducts = localStorage.getItem('customProducts');
+            if (savedCustomProducts) {
+                const customProducts = JSON.parse(savedCustomProducts);
+                delete customProducts[productId];
+                localStorage.setItem('customProducts', JSON.stringify(customProducts));
+            }
+        }
+
+        // Áp dụng tất cả trạng thái
+        function applyAllStates() {
+            // Kiểm tra đăng nhập trước khi thực hiện
+            if (localStorage.getItem('adminLoggedIn') !== 'true') {
+                alert('Vui lòng đăng nhập để sử dụng tính năng này!');
+                return;
+            }
+
+            const hotCheckboxes = document.querySelectorAll('.hot-toggle input:not(.maintenance-checkbox):checked');
+            const maintenanceCheckboxes = document.querySelectorAll('.maintenance-checkbox:checked');
+
             const hotProductIds = Array.from(hotCheckboxes).map(cb => cb.getAttribute('data-id'));
+            const maintenanceProductIds = Array.from(maintenanceCheckboxes).map(cb => cb.getAttribute('data-id'));
 
-            // Xóa tất cả badge HOT hiện có
-            document.querySelectorAll('.hot-badge').forEach(badge => badge.remove());
+            // Xóa tất cả badge hiện có
+            document.querySelectorAll('.hot-badge, .maintenance-badge').forEach(badge => badge.remove());
 
-            // Thêm badge HOT cho các sản phẩm được chọn
+            // Áp dụng badge HOT
             hotProductIds.forEach(id => {
                 const card = document.querySelector(`.card[data-id="${id}"]`);
                 if (card) {
@@ -970,13 +1443,65 @@
                 }
             });
 
-            // Sắp xếp lại sản phẩm: HOT lên đầu
+            // Áp dụng badge Bảo trì
+            maintenanceProductIds.forEach(id => {
+                const card = document.querySelector(`.card[data-id="${id}"]`);
+                if (card) {
+                    const maintenanceBadge = document.createElement('div');
+                    maintenanceBadge.className = 'maintenance-badge';
+                    maintenanceBadge.textContent = 'BẢO TRÌ';
+                    card.appendChild(maintenanceBadge);
+
+                    // Vô hiệu hóa nút mua hàng
+                    const buyBtn = card.querySelector('.btn');
+                    buyBtn.textContent = 'ĐANG BẢO TRÌ';
+                    buyBtn.disabled = true;
+                    buyBtn.href = '#';
+                }
+            });
+
+            // Sắp xếp sản phẩm HOT lên đầu
             sortProductsByHot(hotProductIds);
 
             // Lưu vào localStorage
             localStorage.setItem('hotProducts', JSON.stringify(hotProductIds));
+            localStorage.setItem('maintenanceProducts', JSON.stringify(maintenanceProductIds));
 
-            alert(`Đã áp dụng ${hotProductIds.length} sản phẩm HOT!`);
+            alert(`Đã áp dụng ${hotProductIds.length} sản phẩm HOT và ${maintenanceProductIds.length} sản phẩm BẢO TRÌ!`);
+        }
+
+        // Reset tất cả trạng thái
+        function resetAllStates() {
+            // Kiểm tra đăng nhập trước khi thực hiện
+            if (localStorage.getItem('adminLoggedIn') !== 'true') {
+                alert('Vui lòng đăng nhập để sử dụng tính năng này!');
+                return;
+            }
+
+            // Xóa tất cả badge
+            document.querySelectorAll('.hot-badge, .maintenance-badge').forEach(badge => badge.remove());
+
+            // Bỏ chọn tất cả checkbox
+            document.querySelectorAll('.hot-toggle input').forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.closest('.hot-toggle').classList.remove('active', 'maintenance-toggle');
+            });
+
+            // Khôi phục nút mua hàng
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.textContent = 'Mua Ngay';
+                btn.disabled = false;
+                btn.href = 'https://t.me/ItsMeemo123';
+            });
+
+            // Sắp xếp lại theo thứ tự ban đầu
+            sortProductsByHot([]);
+
+            // Xóa khỏi localStorage
+            localStorage.removeItem('hotProducts');
+            localStorage.removeItem('maintenanceProducts');
+
+            alert('Đã reset tất cả trạng thái sản phẩm!');
         }
 
         // Sắp xếp sản phẩm theo HOT
@@ -1001,31 +1526,12 @@
             // Thêm lại sản phẩm HOT trước, sau đó là sản phẩm thường
             hotCards.forEach(card => productGrid.appendChild(card));
             normalCards.forEach(card => productGrid.appendChild(card));
+
+            // Cập nhật lại danh sách sản phẩm
+            updateAllCards();
         }
 
-        // Reset tất cả sản phẩm HOT
-        function resetHotProducts() {
-            // Xóa tất cả badge HOT
-            document.querySelectorAll('.hot-badge').forEach(badge => badge.remove());
-
-            // Bỏ chọn tất cả checkbox
-            document.querySelectorAll('.hot-toggle input').forEach(checkbox => {
-                checkbox.checked = false;
-                checkbox.closest('.hot-toggle').classList.remove('active');
-            });
-
-            // Sắp xếp lại theo thứ tự ban đầu
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = '';
-            allCards.forEach(card => productGrid.appendChild(card));
-
-            // Xóa khỏi localStorage
-            localStorage.removeItem('hotProducts');
-
-            alert('Đã reset tất cả sản phẩm HOT!');
-        }
-
-        // Tải sản phẩm HOT từ localStorage
+        // Tải sản phẩm HOT và Bảo trì từ localStorage
         function loadHotProducts() {
             const savedHotProducts = localStorage.getItem('hotProducts');
             if (savedHotProducts) {
@@ -1041,8 +1547,227 @@
                 });
 
                 // Áp dụng sản phẩm HOT
-                applyHotProducts();
+                const hotCheckboxes = document.querySelectorAll('.hot-toggle input:not(.maintenance-checkbox):checked');
+                const currentHotProductIds = Array.from(hotCheckboxes).map(cb => cb.getAttribute('data-id'));
+                sortProductsByHot(currentHotProductIds);
             }
+
+            const savedMaintenanceProducts = localStorage.getItem('maintenanceProducts');
+            if (savedMaintenanceProducts) {
+                const maintenanceProductIds = JSON.parse(savedMaintenanceProducts);
+
+                // Đánh dấu checkbox
+                maintenanceProductIds.forEach(id => {
+                    const checkbox = document.querySelector(`#maintenance-${id}`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        checkbox.closest('.hot-toggle').classList.add('maintenance-toggle', 'active');
+                    }
+                });
+
+                // Áp dụng sản phẩm Bảo trì
+                maintenanceProductIds.forEach(id => {
+                    const card = document.querySelector(`.card[data-id="${id}"]`);
+                    if (card) {
+                        const buyBtn = card.querySelector('.btn');
+                        buyBtn.textContent = 'ĐANG BẢO TRÌ';
+                        buyBtn.disabled = true;
+                        buyBtn.href = '#';
+                    }
+                });
+            }
+        }
+
+        // Thêm sản phẩm mới
+        function addNewProduct() {
+            // Kiểm tra đăng nhập trước khi thực hiện
+            if (localStorage.getItem('adminLoggedIn') !== 'true') {
+                alert('Vui lòng đăng nhập để sử dụng tính năng này!');
+                return;
+            }
+
+            const title = newProductTitle.value.trim();
+            const imageUrl = newProductImage.value.trim();
+            const price1 = newProductPrice1.value.trim();
+            const label1 = newProductLabel1.value.trim();
+            const price2 = newProductPrice2.value.trim();
+            const label2 = newProductLabel2.value.trim();
+
+            if (!title || !imageUrl || !price1 || !label1) {
+                alert('Vui lòng điền đầy đủ thông tin sản phẩm (ít nhất tên, ảnh, giá 1 và nhãn giá 1)');
+                return;
+            }
+
+            // Tạo ID mới
+            const newId = Date.now().toString();
+
+            // Tạo card sản phẩm mới
+            const newCard = document.createElement('div');
+            newCard.className = 'card';
+            newCard.setAttribute('data-id', newId);
+
+            newCard.innerHTML = `
+                <img src="${imageUrl}" alt="${title}" data-title="${title}">
+                <div class="card-title">${title}</div>
+                <p>${label1}: <span class="price">${price1}</span></p>
+                ${price2 && label2 ? `<p>${label2}: <span class="price">${price2}</span></p>` : ''}
+                <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+            `;
+            
+            // Thêm vào grid
+            document.getElementById('productGrid').appendChild(newCard);
+            
+            // Thêm vào danh sách điều khiển
+            const toggleDiv = document.createElement('div');
+            toggleDiv.className = 'hot-toggle';
+            toggleDiv.innerHTML = `
+                <input type="checkbox" id="hot-${newId}" data-id="${newId}">
+                <label for="hot-${newId}">HOT</label>
+                <input type="checkbox" id="maintenance-${newId}" data-id="${newId}" class="maintenance-checkbox">
+                <label for="maintenance-${newId}">Bảo trì</label>
+                <span style="margin-left: 10px; color: #a0a0ff;">${title}</span>
+                <button class="delete-product-btn" data-id="${newId}">Xóa</button>
+            `;
+            hotControls.appendChild(toggleDiv);
+            
+            // Thêm sự kiện cho checkbox mới
+            const hotCheckbox = toggleDiv.querySelector('input:first-child');
+            hotCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    toggleDiv.classList.add('active');
+                } else {
+                    toggleDiv.classList.remove('active');
+                }
+            });
+            
+            const maintenanceCheckbox = toggleDiv.querySelector('.maintenance-checkbox');
+            maintenanceCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    toggleDiv.classList.add('maintenance-toggle', 'active');
+                } else {
+                    toggleDiv.classList.remove('maintenance-toggle', 'active');
+                }
+            });
+
+            // Thêm sự kiện cho nút xóa
+            const deleteBtn = toggleDiv.querySelector('.delete-product-btn');
+            deleteBtn.addEventListener('click', function() {
+                deleteProduct(newId);
+            });
+            
+            // Lưu vào localStorage
+            saveProductToLocalStorage(newId, title, imageUrl, price1, label1, price2, label2);
+            
+            // Reset form
+            newProductTitle.value = '';
+            newProductImage.value = '';
+            newProductPrice1.value = '';
+            newProductLabel1.value = '';
+            newProductPrice2.value = '';
+            newProductLabel2.value = '';
+            
+            alert('Đã thêm sản phẩm mới thành công!');
+            
+            // Cập nhật lại danh sách sản phẩm
+            updateAllCards();
+            
+            // Tự động chuyển đến trang cuối cùng trên mobile
+            if (window.innerWidth <= 768) {
+                // Tính toán trang cuối cùng
+                const totalCards = getAllCards().length;
+                const lastPage = Math.ceil(totalCards / itemsPerPage);
+                
+                // Chuyển đến trang cuối
+                currentPage = lastPage;
+                showPage(currentPage);
+            }
+        }
+
+        // Lưu sản phẩm vào localStorage
+        function saveProductToLocalStorage(id, title, imageUrl, price1, label1, price2, label2) {
+            const products = JSON.parse(localStorage.getItem('customProducts') || '{}');
+            products[id] = {
+                title,
+                imageUrl,
+                price1,
+                label1,
+                price2,
+                label2
+            };
+            localStorage.setItem('customProducts', JSON.stringify(products));
+        }
+
+        // Tải sản phẩm từ localStorage
+        function loadCustomProducts() {
+            const products = JSON.parse(localStorage.getItem('customProducts') || '{}');
+            
+            Object.keys(products).forEach(id => {
+                const product = products[id];
+                
+                // Tạo card sản phẩm
+                const newCard = document.createElement('div');
+                newCard.className = 'card';
+                newCard.setAttribute('data-id', id);
+                
+                newCard.innerHTML = `
+                    <img src="${product.imageUrl}" alt="${product.title}" data-title="${product.title}">
+                    <div class="card-title">${product.title}</div>
+                    <p>${product.label1}: <span class="price">${product.price1}</span></p>
+                    ${product.price2 && product.label2 ? `<p>${product.label2}: <span class="price">${product.price2}</span></p>` : ''}
+                    <a class="btn" href="https://t.me/ItsMeemo123" target="_blank">Mua Ngay</a>
+                `;
+                
+                // Thêm vào grid
+                document.getElementById('productGrid').appendChild(newCard);
+                
+                // Thêm vào danh sách điều khiển
+                const toggleDiv = document.createElement('div');
+                toggleDiv.className = 'hot-toggle';
+                toggleDiv.innerHTML = `
+                    <input type="checkbox" id="hot-${id}" data-id="${id}">
+                    <label for="hot-${id}">HOT</label>
+                    <input type="checkbox" id="maintenance-${id}" data-id="${id}" class="maintenance-checkbox">
+                    <label for="maintenance-${id}">Bảo trì</label>
+                    <span style="margin-left: 10px; color: #a0a0ff;">${product.title}</span>
+                    <button class="delete-product-btn" data-id="${id}">Xóa</button>
+                `;
+                hotControls.appendChild(toggleDiv);
+                
+                // Thêm sự kiện cho checkbox
+                const hotCheckbox = toggleDiv.querySelector('input:first-child');
+                hotCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        toggleDiv.classList.add('active');
+                    } else {
+                        toggleDiv.classList.remove('active');
+                    }
+                });
+                
+                const maintenanceCheckbox = toggleDiv.querySelector('.maintenance-checkbox');
+                maintenanceCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        toggleDiv.classList.add('maintenance-toggle', 'active');
+                    } else {
+                        toggleDiv.classList.remove('maintenance-toggle', 'active');
+                    }
+                });
+
+                // Thêm sự kiện cho nút xóa
+                const deleteBtn = toggleDiv.querySelector('.delete-product-btn');
+                deleteBtn.addEventListener('click', function() {
+                    deleteProduct(id);
+                });
+            });
+            
+            // Cập nhật lại danh sách sản phẩm
+            updateAllCards();
+        }
+
+        // Cập nhật danh sách sản phẩm
+        function updateAllCards() {
+            allCards = getAllCards();
+            // Cập nhật phân trang
+            updatePagination();
         }
 
         function updatePagination() {
@@ -1184,15 +1909,36 @@
         }
 
         // Khởi tạo
+        checkAdminLogin();
         createHotControls();
         loadHotProducts();
+        loadCustomProducts();
         updatePagination();
         createShootingStars();
         setupImageZoom();
 
+        // Sự kiện cho nút đăng nhập
+        loginBtn.addEventListener('click', loginAdmin);
+        adminPasswordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                loginAdmin();
+            }
+        });
+
+        // Sự kiện cho nút đăng xuất
+        logoutBtn.addEventListener('click', logoutAdmin);
+
         // Sự kiện cho nút áp dụng và reset
-        applyHotBtn.addEventListener('click', applyHotProducts);
-        resetHotBtn.addEventListener('click', resetHotProducts);
+        applyAllBtn.addEventListener('click', applyAllStates);
+        resetAllBtn.addEventListener('click', resetAllStates);
+        
+        // Sự kiện cho nút thêm sản phẩm
+        addProductBtn.addEventListener('click', addNewProduct);
+
+        // Sự kiện cho nút admin ẩn - SỬA LỖI Ở ĐÂY
+        adminToggle.addEventListener('click', function() {
+            adminPanel.classList.toggle('active');
+        });
 
         // Cập nhật khi thay đổi kích thước cửa sổ
         window.addEventListener('resize', updatePagination);
